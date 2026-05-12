@@ -20,7 +20,7 @@ const AIChat: React.FC<Props> = ({ onGenerate, isGenerating, history }) => {
         )}
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {history.length === 0 && useCases.map((uc) => (
+          {history.length === 0 && useCases.map((uc, idx) => (
             <button
               key={uc.id}
               onClick={() => onGenerate(uc.id)}
@@ -38,7 +38,7 @@ const AIChat: React.FC<Props> = ({ onGenerate, isGenerating, history }) => {
               }}
               className="use-case-btn"
             >
-              <div style={{ fontWeight: 'bold', fontSize: '13px', color: '#eab308', marginBottom: '4px' }}>{uc.title}</div>
+              <div style={{ fontWeight: 'bold', fontSize: '13px', color: '#eab308', marginBottom: '4px' }}>{idx + 1}. {uc.title}</div>
               <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{uc.description}</div>
             </button>
           ))}
